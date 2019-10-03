@@ -1,5 +1,5 @@
 # NVIDIA-GPU-TPU-Accelerator-PyTorch-OpenCV
-A complete machine vision container with Jupyter notebooks with built-in code hinting (press tab), Anaconda, CUDA-X, TensorRT inference accelerator, CuPy (GPU drop in replacement for Numpy), PyTorch &amp; OpenCV for accelerated workloads on NVIDIA TPUs and GPUs.
+A complete machine vision container that includes Jupyter notebooks with built-in code hinting, Anaconda, CUDA-X, TensorRT inference accelerator for TPU access, CuPy (GPU drop in replacement for Numpy), PyTorch &amp; OpenCV for accelerated workloads on NVIDIA TPUs and GPUs.
 
 -----------------------------------------------------------
 
