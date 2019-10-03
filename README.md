@@ -12,7 +12,7 @@ A complete machine vision container with Jupyter notebooks with built-in code hi
 
 ### Built in code hinting in Jupyter Notebook ###
 
-Press tab to see what methods you have access to, sometimes you may want to show the Jupyter original complete temporally, then click shift + space.. Remote auto-completion server is also supported. You may want this to speed up the completion request handing. Or maybe your company want to deploy a compeltion server cluster that services everyone. Read following to learn how to deploy remote server.
+Press tab to see what methods you have access to, sometimes you may want to show the Jupyter original complete temporally, then click shift + space.
 
 ![jupyter-tabnine](https://raw.githubusercontent.com/wenmin-wu/jupyter-tabnine/master/images/demo.gif)
 
