@@ -31,7 +31,7 @@ The enabled code hinting for the Juypter Notebook causes a known security breach
 3. Finally, <strong>un-comment</strong> line 200 (remove hash in front of it):
 Line 200: ` # CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/app --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.custom_display_url='http://localhost:8888'"] `
 
-4. Code hinting won't be installed, but this shores up the security exploit.
+4. Code hinting won't be installed, but this shores up/fixes the security exploit.
 
 
 ### Before you begin (This might be optional) ###
