@@ -21,12 +21,16 @@ Press tab to see what methods you have access to, sometimes you may want to show
 
 The enabled code hinting for the Juypter Notebook causes a known security breach, if security is a concern go into the Dockerfile and comment out lines 119 and 199, and un-comment line 200:
 
+
 1. Line 119: ` RUN pip install jupyter-tabnine `
+
 
 2. Line 199: ` CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/app --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.custom_display_url='http://localhost:8888' serverextension enable --py jupyter_tabnine [--user|--sys-prefix|--system] nbextension enable --py jupyter_tabnine [--user|--sys-prefix|--system] nbextension install --py jupyter_tabnine [--user|--sys-prefix|--system]"] `
 
-3. And then <strong>un-comment</strong> line 200 (remove hash in front of it):
+
+3. Finally, <strong>un-comment</strong> line 200 (remove hash in front of it):
 Line 200: ` # CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/app --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.custom_display_url='http://localhost:8888'"] `
+
 
 
 ### Before you begin (This might be optional) ###
