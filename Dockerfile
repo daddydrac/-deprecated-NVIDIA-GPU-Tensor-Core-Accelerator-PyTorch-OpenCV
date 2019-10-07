@@ -196,5 +196,4 @@ EXPOSE 8888
 RUN useradd -ms /bin/bash container_user
 
 
-CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/app --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.custom_display_url='http://localhost:8888' serverextension enable --py jupyter_tabnine [--user|--sys-prefix|--system] nbextension enable --py jupyter_tabnine [--user|--sys-prefix|--system] nbextension install --py jupyter_tabnine [--user|--sys-prefix|--system]"]
-# CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/app --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.custom_display_url='http://localhost:8888'"]
+CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/app --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.custom_display_url='http://localhost:8888'"]
