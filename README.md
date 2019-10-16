@@ -8,7 +8,7 @@ A complete machine vision container that includes Jupyter notebooks with built-i
 - CuPy: GPU accelerated drop in for Numpy
 - OpenCV, latest version
 - PyTorch with Torchvision for GPU, latest version
-- NVIDIA TensorRT inference accelerator for TPU access and CUDA 10 for GPUs
+- NVIDIA TensorRT inference accelerator for Tensor core access and CUDA 10 for GPUs
 
 ### Built in code hinting in Jupyter Notebook ###
 
