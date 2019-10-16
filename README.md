@@ -26,6 +26,8 @@ The enabled code hinting for the Juypter Notebook causes a known security breach
 
 2. Code hinting won't be installed, but this shores up/fixes the security exploit.
 
+3. You can use the new VSCode and install the Python module which supports hinting and chart generation just like a notebook as an option.
+
 --------------------------------------------------------------------------------
 ### Before you begin (This might be optional) ###
 
