@@ -26,7 +26,7 @@ The enabled code hinting for the Juypter Notebook causes a known security breach
 
 2. Code hinting won't be installed, but this shores up/fixes the security exploit.
 
-3. You can use the new [VSCode](https://code.visualstudio.com/download) and install the [Python module](https://marketplace.visualstudio.com/items?itemName=ms-python.python) which supports code hinting and chart generation just like a jupyter notebook does, as an alternative option.
+3. You can use the new [VSCode](https://code.visualstudio.com/download) and install the [Python module](https://marketplace.visualstudio.com/items?itemName=ms-python.python) which supports code hinting, as well as chart generation. It works no different than a jupyter notebook does, as an alternative option to presereve same dev features.
 
 --------------------------------------------------------------------------------
 ### Before you begin (This might be optional) ###
