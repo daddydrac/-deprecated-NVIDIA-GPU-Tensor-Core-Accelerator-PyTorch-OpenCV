@@ -146,6 +146,7 @@ WORKDIR /opencv/build
 RUN cmake -DBUILD_TIFF=ON \
 		  -DBUILD_opencv_java=OFF \
 		  -DWITH_CUDA=ON \
+		  -DCUDA_ARCH_BIN=6.1 \
 		  -DENABLE_FAST_MATH=1 \
 		  -DCUDA_FAST_MATH=1 \
 		  -DWITH_CUBLAS=1 \
