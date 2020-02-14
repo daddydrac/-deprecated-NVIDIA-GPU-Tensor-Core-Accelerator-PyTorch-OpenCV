@@ -6,7 +6,7 @@ A complete machine vision container that includes Jupyter notebooks with built-i
 ### Features ###
 - Anaconda: Accelerated Python, version 3.7.3
 - CuPy: GPU accelerated drop in for Numpy
-- OpenCV, latest version
+- OpenCV, latest version which compiles for GPU in the container
 - PyTorch with Torchvision for GPU, latest version
 - NVIDIA TensorRT inference accelerator for Tensor core access and CUDA 10 for GPUs
 
