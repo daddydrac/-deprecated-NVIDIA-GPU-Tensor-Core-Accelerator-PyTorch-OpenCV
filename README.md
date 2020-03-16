@@ -1,4 +1,4 @@
-## Containerized NVIDIA GPU/Tensor Core Accelerator for PyTorch + OpenCV
+## NVIDIA GPU/Tensor Core Accelerator for PyTorch, Tensorflow 2, Tensorboard + OpenCV
 A complete machine vision container that includes Jupyter notebooks with built-in code hinting, Anaconda, CUDA-X, TensorRT inference accelerator for Tensor cores, CuPy (GPU drop in replacement for Numpy), PyTorch &amp; OpenCV for accelerated workloads on NVIDIA Tensor cores and GPUs.
 
 -----------------------------------------------------------
@@ -8,6 +8,8 @@ A complete machine vision container that includes Jupyter notebooks with built-i
 - CuPy: GPU accelerated drop in for Numpy
 - OpenCV, latest version which compiles for GPU in the container
 - PyTorch with Torchvision for GPU, latest version
+- Tensorflow 2 with Keras
+- Tensorboard for both Torch and TF2
 - NVIDIA TensorRT inference accelerator for Tensor core access and CUDA 10 for GPUs
 
 ### Built in code hinting in Jupyter Notebook ###
@@ -58,12 +60,12 @@ How to run this container:
 Run the image, mount the volumes for Jupyter and app folder for your fav IDE, and finally the expose ports `8888` for Jupyter Notebook:
 
 
-` docker run --rm -it --runtime=nvidia --user $(id -u):$(id -g) --group-add container_user --group-add sudo -v "${PWD}:/app" -p 8888:8888  <container name> `
+` docker run --rm -it --runtime=nvidia --user $(id -u):$(id -g) --group-add container_user --group-add sudo -v "${PWD}:/app" -p 8888:8888 -p 6006:6006 <container name> `
 
 
 ### Step 3: Check to make sure GPU drivers and CUDA is running ###
 
-- Exec into the container and check if your GPU is registering in the container and CUDA is working:
+- <strong>Open another ssh tab</strong>, and exec into the container and check if your GPU is registering in the container and CUDA is working:
 
 - Get the container id:
 
@@ -80,6 +82,26 @@ Run the image, mount the volumes for Jupyter and app folder for your fav IDE, an
 - Check if CUDA is working:
 
 ` nvcc -V `
+
+
+### Initialize Tensorboard
+
+- Exec into the container as stated above, and run the following:
+
+`tensorboard --logdir=//app --bind_all `
+
+- You will recieve output that looks somnething like this:
+
+`TensorBoard 2.1.0 at http://af5d7fc520cb:6006/`
+
+Just replace `af5d7fc520cb` with localhost and launch in the browser, the you will see:
+
+
+## Tensorflow Serving
+Tensorflow serving provides a REST api at port 8501. 
+* Tensorflow-serving requires models to have a version nr in the model path *path_to_model/xxx/saved_model.pb*
+     * If you download a pretrained tensorflow model, change the directory name of saved_model directory to some random version number (e.g. 001))
+
 
 --------------------------------------------------
 

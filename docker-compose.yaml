@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  computer-vision:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8888:8888'
+      - '6006:6006'
+    volumes:
+      - ./app:/app
+    networks:
+      - computer_vision_api_bridge
+    
+  tensorflow-serving:
+    image: 'tensorflow/serving'
+    ports:
+      - '8500:8500'
+      - '8501:8501'
+    volumes:
+      - ./models:/models
+    environment:
+      - MODEL_NAME=fake_model
+    depends_on:
+      - computer-vision
+
+networks:
+  computer_vision_api_bridge:
+    driver: bridge
+
+volumes:
+  app:
+  model_serving:

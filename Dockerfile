@@ -127,7 +127,10 @@ RUN conda install numba
 RUN conda install -c anaconda cupy 
 RUN conda install -c anaconda ipykernel 
 RUN conda install -c anaconda seaborn 
-RUN conda install -c anaconda ipython 
+RUN conda install -c anaconda ipython
+RUN conda install tensorflow-gpu
+RUN conda install -c conda-forge tensorboard
+ 
 
 #RUN jupyter nbextension install --py jupyter_tabnine [--user|--sys-prefix|--system]
 #RUN jupyter nbextension enable --py jupyter_tabnine [--user|--sys-prefix|--system]
@@ -191,7 +194,7 @@ RUN cd ~ && \
 
 
 WORKDIR /app
-EXPOSE 8888 
+EXPOSE 8888 6006
 
 # Better container security versus running as root
 RUN useradd -ms /bin/bash container_user
