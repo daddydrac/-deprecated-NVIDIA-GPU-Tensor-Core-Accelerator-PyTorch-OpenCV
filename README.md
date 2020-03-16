@@ -50,6 +50,8 @@ You must install nvidia-docker2 and all it's deps first, assuming that is done, 
 How to run this container:
 
 
+## If using Dockerfile (will not deploy TFX/TensorFlow Serving):
+
 ### Step 1 ###
 
 ` docker build -t <container name> . `  < note the . after <container name>
@@ -61,6 +63,43 @@ Run the image, mount the volumes for Jupyter and app folder for your fav IDE, an
 
 
 ` docker run --rm -it --runtime=nvidia --user $(id -u):$(id -g) --group-add container_user --group-add sudo -v "${PWD}:/app" -p 8888:8888 -p 6006:6006 <container name> `
+
+
+## If using docker-compose:
+
+Install the the nvidia-conatiner-runtime package, install and set-up config is here: https://github.com/NVIDIA/nvidia-container-runtime.
+
+` sudo apt-get install nvidia-container-runtime `
+` sudo vim /etc/docker/daemon.json `
+
+Then , in this `daemon.json` file, add this content:
+
+```
+{
+  "default-runtime": "nvidia"
+  "runtimes": {
+    "nvidia": {
+      "path": "/usr/bin/nvidia-container-runtime",
+       "runtimeArgs": []
+     }
+  }
+}
+```
+
+` sudo systemctl daemon-reload `
+
+` sudo systemctl restart docker `
+
+
+### Step 1
+
+` docker-compose build `
+
+### Step 2
+
+` docker-compose up `
+
+<em><strong>Note:</strong> TFX will query the folder path until it gets a trained model to serve in the cmd line and issue warnings, this is harmless</em>
 
 
 ### Step 3: Check to make sure GPU drivers and CUDA is running ###
@@ -98,10 +137,15 @@ Just replace `af5d7fc520cb` with localhost and launch in the browser, the you wi
 
 
 ## Tensorflow Serving
+
 Tensorflow serving provides a REST api at port 8501. 
 * Tensorflow-serving requires models to have a version nr in the model path *path_to_model/xxx/saved_model.pb*
      * If you download a pretrained tensorflow model, change the directory name of saved_model directory to some random version number (e.g. 001))
 
+![a](./misc/a.png)
+![a](./misc/b.png)
+![a](./misc/c.png)
+![a](./misc/d.png)
 
 --------------------------------------------------
 

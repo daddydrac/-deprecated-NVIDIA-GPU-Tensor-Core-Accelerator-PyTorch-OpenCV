@@ -1,15 +1,18 @@
-version: '3'
+version: '2.3'
 
 services:
   computer-vision:
     build:
       context: .
       dockerfile: Dockerfile
+    runtime: nvidia
     ports:
       - '8888:8888'
       - '6006:6006'
     volumes:
       - ./app:/app
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
     networks:
       - computer_vision_api_bridge
     
@@ -22,6 +25,7 @@ services:
       - ./models:/models
     environment:
       - MODEL_NAME=fake_model
+      - NVIDIA_VISIBLE_DEVICES=all
     depends_on:
       - computer-vision
 
