@@ -1,6 +1,8 @@
 ### NVIDIA GPU/Tensor Core Accelerator for PyTorch, Tensorflow 2, Tensorboard + OpenCV
 A complete machine vision container that includes Jupyter notebooks with built-in code hinting, Anaconda, CUDA-X, TensorRT inference accelerator for Tensor cores, CuPy (GPU drop in replacement for Numpy), PyTorch, TF2, Tensorboard, and OpenCV for accelerated workloads on NVIDIA Tensor cores and GPUs.
 
+There are working notebook examples on how to wire up, both Torch and TF2 to Tensorboard; Tensorflow Serving/TFX does model serving via REST API on port 8501, which can be configured for monitoring statistical concept drift as well.
+
 -----------------------------------------------------------
 
 ### Features ###
