@@ -1,4 +1,4 @@
-## NVIDIA GPU/Tensor Core Accelerator for PyTorch, Tensorflow 2, Tensorboard + OpenCV
+### NVIDIA GPU/Tensor Core Accelerator for PyTorch, Tensorflow 2, Tensorboard + OpenCV
 A complete machine vision container that includes Jupyter notebooks with built-in code hinting, Anaconda, CUDA-X, TensorRT inference accelerator for Tensor cores, CuPy (GPU drop in replacement for Numpy), PyTorch &amp; OpenCV for accelerated workloads on NVIDIA Tensor cores and GPUs.
 
 -----------------------------------------------------------
@@ -135,17 +135,17 @@ Then , in this `daemon.json` file, add this content:
 
 Just replace `af5d7fc520cb` with localhost and launch in the browser, the you will see:
 
+![a](./misc/a.png)
+![a](./misc/b.png)
+![a](./misc/c.png)
+![a](./misc/d.png)
+
 
 ## Tensorflow Serving
 
 Tensorflow serving provides a REST api at port 8501. 
 * Tensorflow-serving requires models to have a version nr in the model path *path_to_model/xxx/saved_model.pb*
      * If you download a pretrained tensorflow model, change the directory name of saved_model directory to some random version number (e.g. 001))
-
-![a](./misc/a.png)
-![a](./misc/b.png)
-![a](./misc/c.png)
-![a](./misc/d.png)
 
 --------------------------------------------------
 
