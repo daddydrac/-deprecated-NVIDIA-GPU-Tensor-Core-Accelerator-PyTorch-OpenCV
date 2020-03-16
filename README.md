@@ -71,6 +71,7 @@ Run the image, mount the volumes for Jupyter and app folder for your fav IDE, an
 Install the the nvidia-conatiner-runtime package, install and set-up config is here: https://github.com/NVIDIA/nvidia-container-runtime.
 
 ` sudo apt-get install nvidia-container-runtime `
+
 ` sudo vim /etc/docker/daemon.json `
 
 Then , in this `daemon.json` file, add this content:
