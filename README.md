@@ -135,7 +135,7 @@ Then , in this `daemon.json` file, add this content:
 
 `TensorBoard 2.1.0 at http://af5d7fc520cb:6006/`
 
-Just replace `af5d7fc520cb` with localhost and launch in the browser, the you will see:
+Just replace `af5d7fc520cb` with the word `localhost` and launch in the browser, then you will see:
 
 ![a](./misc/a.png)
 ![a](./misc/b.png)
