@@ -53,7 +53,7 @@ You must install nvidia-docker2 and all it's deps first, assuming that is done, 
 How to run this container:
 
 
-## If using Dockerfile (will not deploy TFX/TensorFlow Serving):
+## If using Dockerfile (Recommended for Development - Will not deploy TFX/TensorFlow Serving):
 
 ### Step 1 ###
 
@@ -68,7 +68,7 @@ Run the image, mount the volumes for Jupyter and app folder for your fav IDE, an
 ` docker run --rm -it --runtime=nvidia --user $(id -u):$(id -g) --group-add container_user --group-add sudo -v "${PWD}:/app" -p 8888:8888 -p 6006:6006 <container name> `
 
 
-## If using docker-compose:
+## If using docker-compose/Recommended for Production:
 
 Install the the nvidia-conatiner-runtime package, install and set-up config is here: https://github.com/NVIDIA/nvidia-container-runtime.
 
