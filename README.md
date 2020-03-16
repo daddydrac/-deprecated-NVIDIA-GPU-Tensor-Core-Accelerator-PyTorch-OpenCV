@@ -11,6 +11,7 @@ A complete machine vision container that includes Jupyter notebooks with built-i
 - Tensorflow 2 with Keras
 - Tensorboard for both Torch and TF2
 - NVIDIA TensorRT inference accelerator for Tensor core access and CUDA 10 for GPUs
+- TFX/TensorFlow serving for monitoring, locking in gpu/cpu architecthure for reproducibility, and model serving via rest api
 
 ### Built in code hinting in Jupyter Notebook ###
 
