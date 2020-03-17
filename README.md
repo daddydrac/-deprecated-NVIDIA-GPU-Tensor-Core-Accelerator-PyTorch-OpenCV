@@ -17,7 +17,7 @@ There are working notebook examples on how to wire up, both Torch and TF2 to Ten
 
 ### Built in code hinting in Jupyter Notebook ###
 
-Press tab to see what methods you have access to, sometimes you may want to show the Jupyter original complete temporally, then click shift + space.
+Press tab to see what methods you have access to by clicking tab.
 
 ![jupyter-tabnine](https://raw.githubusercontent.com/wenmin-wu/jupyter-tabnine/master/images/demo.gif)
 
