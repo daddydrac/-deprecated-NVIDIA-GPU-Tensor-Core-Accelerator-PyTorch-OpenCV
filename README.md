@@ -70,6 +70,28 @@ Run the image, mount the volumes for Jupyter and app folder for your fav IDE, an
 
 ## If using docker-compose/Recommended for Production:
 
+4/8/2020: As of Docker v19, there are some problems the Docker team is still working on - It looks as though the runtime argument was deprecated prematurely since there is no support for --gpus argument in docker-py or docker-compose (both heavily used methods for launching docker containers).
+
+You should be able to utilize the runtime argument on Docker 19+ as long as it is installed and configured in the daemon configuration file:
+
+Method 1:
+Install nvidia-docker2 package
+https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)#ubuntu-distributions-1
+
+Method 2:
+Install the container runtime:
+https://github.com/NVIDIA/nvidia-container-runtime#ubuntu-distributions
+
+Modify the config file:
+https://github.com/NVIDIA/nvidia-container-runtime#daemon-configuration-file
+
+Please see this docker-compose issue for more details:
+docker/compose#6691
+
+Please let us know if you're unable to install the runtime from either of these methods.
+
+-------------------------------
+
 Install the the nvidia-conatiner-runtime package, install and set-up config is here: https://github.com/NVIDIA/nvidia-container-runtime.
 
 ` sudo apt-get install nvidia-container-runtime `
