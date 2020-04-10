@@ -14,6 +14,7 @@ There are working notebook examples on how to wire up, both Torch and TF2 to Ten
 - Tensorboard for both Torch and TF2
 - NVIDIA TensorRT inference accelerator for Tensor core access and CUDA 10 for GPUs
 - TFX/TensorFlow serving for monitoring, locking in gpu/cpu arch for reproducibility, and model serving via rest api
+- Repo includes two working notebook examples on how to wire up Torch and Tf2 to TensorBoard, located in ```/app``` folder
 
 ### Built in code hinting in Jupyter Notebook ###
 
