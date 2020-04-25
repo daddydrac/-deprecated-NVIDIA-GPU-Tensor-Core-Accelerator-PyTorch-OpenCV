@@ -5,6 +5,14 @@ There are working notebook examples on how to wire up, both Torch and TF2 to Ten
 
 -----------------------------------------------------------
 
+It takes a while for OpenCV to compile for CUDA, so if you want to skip the build process to save time you can pull the pre-built image from DockerHub here:
+
+https://hub.docker.com/r/jhoeller/computer-vision
+
+``` docker pull jhoeller/computer-vision ```
+
+-----------------------------------------------------------
+
 ### Features ###
 - Anaconda: Accelerated Python, version 3.7.3
 - CuPy: GPU accelerated drop in for Numpy
