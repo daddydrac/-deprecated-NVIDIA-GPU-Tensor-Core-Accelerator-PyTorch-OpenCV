@@ -119,13 +119,13 @@ RUN ${PIP} --no-cache-dir install --upgrade \
 RUN pip install jupyter-tabnine
 RUN pip install cupy-cuda101
 RUN pip install mlflow 
-RUN pip seldon-core 
-RUN pip albumentations 
-RUN pip networkx 
-RUN pip jupyter-tabnine 
-RUN pip shap 
-RUN pip tensor-sensor 
-RUN pip fastapi
+RUN pip install seldon-core 
+RUN pip install albumentations 
+RUN pip install networkx 
+RUN pip install jupyter-tabnine 
+RUN pip install shap 
+RUN pip install tensor-sensor 
+RUN pip install fastapi
 RUN pip install torch-scatter==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
 RUN pip install torch-sparse==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
 RUN pip install torch-cluster==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
