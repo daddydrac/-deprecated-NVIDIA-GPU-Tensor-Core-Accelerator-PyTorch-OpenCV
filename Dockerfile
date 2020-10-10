@@ -117,19 +117,33 @@ RUN ${PIP} --no-cache-dir install --upgrade \
 
 # Add auto-complete to Juypter
 RUN pip install jupyter-tabnine
-
+RUN pip install cupy-cuda101
+RUN pip install mlflow 
+RUN pip seldon-core 
+RUN pip albumentations 
+RUN pip networkx 
+RUN pip jupyter-tabnine 
+RUN pip shap 
+RUN pip tensor-sensor 
+RUN pip fastapi
+RUN pip install torch-scatter==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+RUN pip install torch-sparse==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+RUN pip install torch-cluster==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+RUN pip install torch-spline-conv==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+RUN pip install torch-geometric
 
 RUN conda update -n base -c defaults conda
 RUN conda install -c anaconda jupyter 
 RUN conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
 RUN conda update conda
 RUN conda install numba
-RUN conda install -c anaconda cupy 
+#RUN conda install -c anaconda cupy 
 RUN conda install -c anaconda ipykernel 
 RUN conda install -c anaconda seaborn 
 RUN conda install -c anaconda ipython
-RUN conda install tensorflow-gpu
+#RUN conda install tensorflow-gpu
 RUN conda install -c conda-forge tensorboard
+RUN conda install captum -c pytorch
  
 
 #RUN jupyter nbextension install --py jupyter_tabnine [--user|--sys-prefix|--system]
