@@ -68,6 +68,11 @@ How to run this container:
 
 ` docker build -t <container name> . `  < note the . after <container name>
 
+If you get an authorized user from the docker pull cmd inside the container, try:
+
+` $ docker logout `
+
+...and then run it or pull again. As it is public repo you shouldn't need to login.
 
 ### Step 2 ###
 
