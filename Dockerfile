@@ -141,14 +141,10 @@ RUN conda install numba
 RUN conda install -c anaconda ipykernel 
 RUN conda install -c anaconda seaborn 
 RUN conda install -c anaconda ipython
-#RUN conda install tensorflow-gpu
+RUN conda install tensorflow-gpu
 RUN conda install -c conda-forge tensorboard
 RUN conda install captum -c pytorch
- 
 
-#RUN jupyter nbextension install --py jupyter_tabnine [--user|--sys-prefix|--system]
-#RUN jupyter nbextension enable --py jupyter_tabnine [--user|--sys-prefix|--system]
-#RUN jupyter serverextension enable --py jupyter_tabnine [--user|--sys-prefix|--system]
 
 WORKDIR /
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
