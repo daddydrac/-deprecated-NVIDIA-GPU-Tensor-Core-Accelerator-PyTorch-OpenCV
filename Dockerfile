@@ -69,9 +69,11 @@ RUN rm -rf cmake.tar.gz
 
 
 # Install TensorRT (TPU Access)
-RUN apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1 \
-    libnvinfer-dev=7.1.3-1 \
-    libnvinfer-plugin7=7.1.3-1
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libnvinfer7=7.1.3-1+cuda11.0 \
+    libnvinfer-dev=7.1.3-1+cuda11.0 \
+    libnvinfer-plugin7=7.1.3-1+cuda11.0 \
+    libnvinfer-plugin-dev=7.1.3-1+cuda11.0
 
 #RUN apt-get update && \
 #        apt-get install -y nvinfer-runtime-trt-repo-ubuntu1804-5.0.2-ga-cuda10.0 && \
@@ -137,8 +139,8 @@ RUN pip install tensor-sensor
 #RUN pip install torch-geometric
 
 RUN conda update -n base -c defaults conda
-RUN conda install -c anaconda jupyter 
-RUN conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
+RUN conda install -c anaconda jupyter
+RUN conda install -y pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
 RUN conda install pytorch-geometric -c rusty1s -c conda-forge
 RUN conda update conda
 RUN conda install numba
@@ -146,7 +148,7 @@ RUN conda install numba
 RUN conda install -c anaconda ipykernel 
 RUN conda install -c anaconda seaborn 
 RUN conda install -c anaconda ipython
-RUN conda install tensorflow-gpu
+RUN conda install tensorflow
 RUN conda install -c conda-forge tensorboard
 RUN conda install -c conda-forge protobuf
 RUN conda install captum -c pytorch
@@ -165,7 +167,7 @@ WORKDIR /opencv/build
 RUN cmake -DBUILD_TIFF=ON \
 		  -DBUILD_opencv_java=OFF \
 		  -DWITH_CUDA=ON \
-		  -DCUDA_ARCH_BIN=6.1 \
+		  -DCUDA_ARCH_BIN=7.5 \
 		  -DENABLE_FAST_MATH=1 \
 		  -DCUDA_FAST_MATH=1 \
 		  -DWITH_CUBLAS=1 \
