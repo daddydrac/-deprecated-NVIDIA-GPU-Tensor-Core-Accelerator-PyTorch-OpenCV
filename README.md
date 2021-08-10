@@ -1,4 +1,4 @@
-### NVIDIA GPU/Tensor Core Accelerator for PyTorch, Tensorflow 2, Tensorboard + OpenCV
+### NVIDIA GPU/Tensor Core Accelerator for PyTorch, PyTorch Geometric, Tensorflow 2, Tensorboard + OpenCV
 A complete computer vision container that includes Jupyter notebooks with built-in code hinting, Miniconda, CUDA 11, TensorRT inference accelerator for Tensor cores, CuPy (GPU drop in replacement for Numpy), PyTorch, PyTorch Geometric for geomteric learning and/or Graph Neural Networks, TF2, Tensorboard, and OpenCV (complied for CUDA) for accelerated workloads on NVIDIA Tensor cores and GPUs.
 
 There are working notebook examples on how to wire up, both Torch and TF2 to Tensorboard in ```/app``` folder.
