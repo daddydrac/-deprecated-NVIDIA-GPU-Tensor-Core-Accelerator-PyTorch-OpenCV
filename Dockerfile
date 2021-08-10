@@ -69,7 +69,7 @@ RUN rm -rf cmake.tar.gz
 
 
 # Install TensorRT (TPU Access)
-sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1 \
+RUN apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1 \
     libnvinfer-dev=7.1.3-1 \
     libnvinfer-plugin7=7.1.3-1
 
