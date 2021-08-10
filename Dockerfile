@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:11.1-cudnn8-devel-ubuntu18.04
 ENV DEBIAN_FRONTEND noninteractive
 # Core Linux Deps
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --fix-missing --no-install-recommends apt-utils \
@@ -69,10 +69,14 @@ RUN rm -rf cmake.tar.gz
 
 
 # Install TensorRT (TPU Access)
-RUN apt-get update && \
-        apt-get install -y nvinfer-runtime-trt-repo-ubuntu1804-5.0.2-ga-cuda10.0 && \
-        apt-get update && \
-        apt-get install -y libnvinfer5=5.0.2-1+cuda10.0
+sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1 \
+    libnvinfer-dev=7.1.3-1 \
+    libnvinfer-plugin7=7.1.3-1
+
+#RUN apt-get update && \
+#        apt-get install -y nvinfer-runtime-trt-repo-ubuntu1804-5.0.2-ga-cuda10.0 && \
+#        apt-get update && \
+#        apt-get install -y libnvinfer5=5.0.2-1+cuda10.0
 
 RUN file="$(ls -1 /usr/local/)" && echo $file
 
@@ -117,7 +121,7 @@ RUN ${PIP} --no-cache-dir install --upgrade \
 
 # Add auto-complete to Juypter
 RUN pip install jupyter-tabnine
-RUN pip install cupy-cuda101
+RUN pip install cupy-cuda111
 RUN pip install mlflow 
 RUN pip install seldon-core 
 RUN pip install albumentations 
@@ -125,16 +129,17 @@ RUN pip install networkx
 RUN pip install jupyter-tabnine 
 RUN pip install shap 
 RUN pip install tensor-sensor 
-RUN pip install fastapi
-RUN pip install torch-scatter==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
-RUN pip install torch-sparse==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
-RUN pip install torch-cluster==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
-RUN pip install torch-spline-conv==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
-RUN pip install torch-geometric
+#RUN pip install fastapi
+#RUN pip install torch-scatter==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+#RUN pip install torch-sparse==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+#RUN pip install torch-cluster==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+#RUN pip install torch-spline-conv==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+#RUN pip install torch-geometric
 
 RUN conda update -n base -c defaults conda
 RUN conda install -c anaconda jupyter 
-RUN conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
+RUN conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
+RUN conda install pytorch-geometric -c rusty1s -c conda-forge
 RUN conda update conda
 RUN conda install numba
 #RUN conda install -c anaconda cupy 
@@ -143,6 +148,7 @@ RUN conda install -c anaconda seaborn
 RUN conda install -c anaconda ipython
 RUN conda install tensorflow-gpu
 RUN conda install -c conda-forge tensorboard
+RUN conda install -c conda-forge protobuf
 RUN conda install captum -c pytorch
 
 
@@ -182,7 +188,7 @@ RUN cmake -DBUILD_TIFF=ON \
                   -DOPENCV_ENABLE_NONFREE=ON \
                   -DOPENCV_EXTRA_MODULES_PATH=/opencv_contrib/modules \
                   -DBUILD_EXAMPLES=ON \
-                  -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.0 \
+                  -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.1 \
                   -DWITH_QT=ON ..
                  
 RUN make -j4 \
