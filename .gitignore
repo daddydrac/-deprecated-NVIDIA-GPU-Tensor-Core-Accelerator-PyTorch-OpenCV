@@ -1,5 +1,6 @@
 .idea
 runs
 .vscode
+.aws
 __pycache__
 
