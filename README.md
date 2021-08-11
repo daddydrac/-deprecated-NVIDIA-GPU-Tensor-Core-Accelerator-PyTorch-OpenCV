@@ -70,28 +70,11 @@ Run the image, mount the volumes for Jupyter and app folder for your fav IDE, an
 
 ` docker run --rm -it --runtime=nvidia --user $(id -u):$(id -g) --group-add container_user --group-add sudo -v "${PWD}:/app" -p 8888:8888 -p 6006:6006 <container name> `
 
+ <em>Disclaimer:</em> You should be able to utilize the runtime argument on Docker 19+ as long as it is installed and configured in the daemon configuration file:
 
-
-You should be able to utilize the runtime argument on Docker 19+ as long as it is installed and configured in the daemon configuration file:
-
+ 
 Install nvidia-docker2 package
 https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)#ubuntu-distributions-1
-
-
-Please let us know if you're unable to install the runtime from either of these methods.
-
--------------------------------
-
-
-### Step 1
-
-` docker-compose build `
-
-### Step 2
-
-` docker-compose up `
-
-<em><strong>Note:</strong> TFX will query the folder path until it gets a trained model to serve in the cmd line and issue warnings, this is harmless</em>
 
 
 ### Step 3: Check to make sure GPU drivers and CUDA is running ###
