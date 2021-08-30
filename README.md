@@ -5,11 +5,7 @@ A complete computer vision container that includes Jupyter notebooks with built-
 
 -----------------------------------------------------------
 
-It takes a while for OpenCV to compile for CUDA, so if you want to skip the build process to save time, you can pull the pre-built image from DockerHub here:
 
-https://hub.docker.com/r/jhoeller/computer-vision
-
-``` docker pull jhoeller/computer-vision ```
 
 -----------------------------------------------------------
 
