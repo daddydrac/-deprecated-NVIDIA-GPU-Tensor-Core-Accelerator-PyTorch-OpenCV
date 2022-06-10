@@ -141,7 +141,7 @@ RUN pip install tensor-sensor
 RUN conda update -n base -c defaults conda
 RUN conda install -c anaconda jupyter
 RUN conda install -y pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
-RUN conda install pytorch-geometric -c rusty1s -c conda-forge
+RUN conda install pyg -c pyg
 RUN conda update conda
 RUN conda install numba
 #RUN conda install -c anaconda cupy 
