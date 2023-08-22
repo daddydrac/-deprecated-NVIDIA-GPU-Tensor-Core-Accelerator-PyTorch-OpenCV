@@ -10,10 +10,10 @@ A complete computer vision container that includes Jupyter notebooks with built-
 -----------------------------------------------------------
 
 ### Features ###
-- Miniconda: Accelerated Python, version 3.9
+- Miniconda: Accelerated Python, version 3.11
 - CuPy: GPU accelerated drop in replacement for Numpy
 - OpenCV, latest version which is made to compile for CUDA GPUs in the container. Depending upon your GPU you may have to change ```-DCUDA_ARCH_BIN=7.5``` in the OpenCV flags within the Dockerfile, and rebuild the image.
-- PyTorch with Torchvision for GPU, latest version
+- PyTorch 2.0 with Torchvision for GPU, latest version
 - PyTorch geometric for GNN's
 - Captum to explain Torch models
 - Tensorflow 2 with Keras
