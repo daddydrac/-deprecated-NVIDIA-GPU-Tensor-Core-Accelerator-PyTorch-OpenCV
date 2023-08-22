@@ -66,6 +66,10 @@ Run the image, mount the volumes for Jupyter and app folder for your fav IDE, an
 
 ` docker run --rm -it --runtime=nvidia --user $(id -u):$(id -g) --group-add container_user --group-add sudo -v "${PWD}:/app" -p 8888:8888 -p 6006:6006 <container name> `
 
+:P If on Windows 10:
+
+` winpty docker run --rm -it --gpus all -v "/c/path/to/your/directory:/app" -p 8888:8888 -p 6006:6006 <container name> `
+
  <em>Disclaimer:</em> You should be able to utilize the runtime argument on Docker 19+ as long as it is installed and configured in the daemon configuration file:
 
  
