@@ -1,6 +1,10 @@
-FROM nvidia/cuda:11.1-cudnn8-devel-ubuntu18.04
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 ENV DEBIAN_FRONTEND noninteractive
 # Core Linux Deps
+RUN apt update
+RUN apt install build-essential
+RUN gcc --version 
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --fix-missing --no-install-recommends apt-utils \
         build-essential \
         curl \
@@ -13,8 +17,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --fix-mi
 	libxmu-dev \
 	gfortran \
         pkg-config \
-	python-numpy \
-	python-dev \
 	python-setuptools \
 	libboost-python-dev \
 	libboost-thread-dev \
@@ -29,7 +31,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --fix-mi
         libpng-dev \
         libtiff-dev \
 	libgraphicsmagick1-dev \
-        libavresample-dev \
         libavformat-dev \
         libhdf5-dev \
         libpq-dev \
@@ -45,7 +46,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --fix-mi
         libeigen3-dev \
 	wget \
         vim \
-        qt5-default \
         unzip \
 	zip \ 
         && \
@@ -69,11 +69,11 @@ RUN rm -rf cmake.tar.gz
 
 
 # Install TensorRT (TPU Access)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libnvinfer7=7.1.3-1+cuda11.0 \
-    libnvinfer-dev=7.1.3-1+cuda11.0 \
-    libnvinfer-plugin7=7.1.3-1+cuda11.0 \
-    libnvinfer-plugin-dev=7.1.3-1+cuda11.0
+#RUN apt-get update && apt-get install -y --no-install-recommends \
+#    libnvinfer7=7.1.3-1+cuda11.0 \
+#    libnvinfer-dev=7.1.3-1+cuda11.0 \
+#    libnvinfer-plugin7=7.1.3-1+cuda11.0 \
+#    libnvinfer-plugin-dev=7.1.3-1+cuda11.0
 
 #RUN apt-get update && \
 #        apt-get install -y nvinfer-runtime-trt-repo-ubuntu1804-5.0.2-ga-cuda10.0 && \
@@ -140,8 +140,8 @@ RUN pip install tensor-sensor
 
 RUN conda update -n base -c defaults conda
 RUN conda install -c anaconda jupyter
-RUN conda install -y pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
-RUN conda install pyg -c pyg
+RUN conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+#RUN conda install pyg -c pyg
 RUN conda update conda
 RUN conda install numba
 #RUN conda install -c anaconda cupy 
@@ -190,7 +190,7 @@ RUN cmake -DBUILD_TIFF=ON \
                   -DOPENCV_ENABLE_NONFREE=ON \
                   -DOPENCV_EXTRA_MODULES_PATH=/opencv_contrib/modules \
                   -DBUILD_EXAMPLES=ON \
-                  -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.1 \
+                  -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.8 \
                   -DWITH_QT=ON ..
                  
 RUN make -j4 \
@@ -206,9 +206,9 @@ WORKDIR /
 # dlib
 RUN cd ~ && \
     mkdir -p dlib && \
-    git clone -b 'v19.16' --single-branch https://github.com/davisking/dlib.git dlib/ && \
+    git clone -b master --single-branch https://github.com/davisking/dlib.git dlib/ && \
     cd  dlib/ && \
-    python3 setup.py install --yes USE_AVX_INSTRUCTIONS --yes DLIB_USE_CUDA --clean
+    python3 setup.py install
 
 
 WORKDIR /app
