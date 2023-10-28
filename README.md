@@ -1,4 +1,4 @@
-> ⚠️ This Helm Chart has been deprecated. Please use the [Deep Learning Ultra](https://github.com/salinaaaaaa/Deep-Learning-Ultra) container instead.
+> ⚠️ This repo has been deprecated. Please use the [Deep Learning Ultra](https://github.com/salinaaaaaa/Deep-Learning-Ultra) container instead.
 
 
 # Deprecated
